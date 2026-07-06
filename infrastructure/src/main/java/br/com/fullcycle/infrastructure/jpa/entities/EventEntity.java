@@ -1,6 +1,7 @@
 package br.com.fullcycle.infrastructure.jpa.entities;
 
 import br.com.fullcycle.domain.event.Event;
+import br.com.fullcycle.domain.event.EventStatus;
 import br.com.fullcycle.domain.event.EventTicket;
 import jakarta.persistence.*;
 
@@ -66,7 +67,8 @@ public class EventEntity {
                 this.partnerId().toString(),
                 this.tickets().stream()
                         .map(EventTicketEntity::toEventTicket)
-                        .collect(Collectors.toSet())
+                        .collect(Collectors.toSet()),
+                EventStatus.ACTIVE
         );
     }
 
