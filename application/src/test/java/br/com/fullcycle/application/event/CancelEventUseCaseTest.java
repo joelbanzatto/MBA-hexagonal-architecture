@@ -32,7 +32,7 @@ class CancelEventUseCaseTest {
         final var output = useCase.execute(cancelInput);
 
         // then
-        Assertions.assertEquals(eventID, output.eventId());
+        Assertions.assertEquals(eventID, output.id());
         Assertions.assertEquals(expectedStatus, output.status());
 
         final var actualEvent = eventRepository.eventOfId(EventId.with(eventID)).get();
